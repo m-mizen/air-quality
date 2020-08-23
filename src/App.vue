@@ -1,31 +1,72 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" :class="{'dark-theme': darkTheme}">
+    <header>
+      <div class="app-logo">
+        Air Quality
+      </div>
+      <nav id="nav">
+        <router-link to="/">My Air Quality</router-link> |
+        <router-link to="/about">About</router-link>
+      </nav>
+    </header>
+    <main>
+      <router-view />
+    </main>
+    <footer></footer>
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
+    return {
+      darkTheme: false,
+    };
+  },
+});
+</script>
+
 <style lang="scss">
+@use 'node_modules/reset-css/reset.css';
+
+:root{
+  box-sizing: border-box;
+  font-size: 100%; // REM SIZE
+  background: #f2f2f2;
+
+  --font-title: 'Oxygen', sans-serif;
+  --font-base: 'Fira Sans', sans-serif;
+}
+
+*, *::after, *::before{
+  box-sizing: inherit;
+}
+
+body{
+  color: #333;
+  line-height: 1.5;
+  font-family: var(--font-base, sans-serif);
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: 80px 1fr auto;
+  grid-template-columns: 1fr;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
 }
 
 #nav {
-  padding: 30px;
-
   a {
-    font-weight: bold;
-    color: #2c3e50;
-
     &.router-link-exact-active {
-      color: #42b983;
     }
   }
 }
