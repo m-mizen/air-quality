@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/air-quality/precache-manifest.562dd330dbed7e48f4bda7e12d8c6d69.js"
+  "/air-quality/precache-manifest.8a58afa66411312328beb2b02d63440f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "air-quality"});
