@@ -31,19 +31,22 @@ export default defineComponent({
     AirQualityResult,
   },
   setup() {
-    const state = reactive({
-      airQuality: null,
+    const state = reactive<ComponentState>({
+      airQuality: undefined,
     });
 
-    const handleUserLocation = async (coords: any) => {
-      let data: any;
+    const handleUserLocation = async (coords: Coordinates) => {
+      let data: AirVisualData | null;
+
       if (!coords) {
         data = await airQualityByIP();
       } else {
         const { latitude, longitude } = coords;
         data = await airQualityByLatLong(latitude, longitude);
       }
-      state.airQuality = data;
+      if (data) {
+        state.airQuality = data;
+      }
     };
 
     return {
