@@ -10,7 +10,7 @@ export async function getLocation(force = false): Promise<Coordinates | null> {
 
   // Check for support
   if (!window.navigator.geolocation) {
-    console.log('Geolocation not supported');
+    console.error('Geolocation not supported');
     return null;
   }
 

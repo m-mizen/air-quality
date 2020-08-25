@@ -64,3 +64,5 @@ export interface AirVisualResponse {
   status: AirVisualResponseCodes;
   data: AirVisualData;
 }
+
+export default {}
