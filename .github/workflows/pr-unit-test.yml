@@ -19,3 +19,10 @@ jobs:
 
       - name: Run unit tests
         run: npm run test
+
+      - uses: ouzi-dev/commit-status-updater@v1.0.4
+        with:
+          status: ${{ job.status }}
+          successComment: "Unit tests passed"
+          pendingComment: "Unit tests running"
+          failComment: "Unit tests failed"
