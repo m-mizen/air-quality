@@ -62,26 +62,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch, reactive } from 'vue';
-
-// Models
-import { AirVisualData } from '@/models/air-visual.model';
+import { defineComponent, reactive } from 'vue';
 
 export default defineComponent({
   props: {
     airQuality: null,
   },
-  setup(props) {
+  setup() {
     const state = reactive({
       showExplination: false,
     });
-
-    watch(
-      () => props.airQuality,
-      () => {
-        console.log(props.airQuality);
-      },
-    );
 
     const aqiExplained = [
       {

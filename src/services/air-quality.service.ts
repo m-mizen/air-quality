@@ -11,7 +11,7 @@ export async function airQualityByLatLong(lat: number, lon: number): Promise<Air
     }
     return information.data;
   } catch (error) {
-    console.log(error);
+    console.warn(error);
     return null;
   }
 }
@@ -25,7 +25,7 @@ export async function airQualityByIP(): Promise<AirVisualData|null> {
     }
     return information.data;
   } catch (error) {
-    console.log(error);
+    console.warn(error);
     return null;
   }
 }
