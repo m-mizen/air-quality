@@ -20,8 +20,9 @@ jobs:
       - name: Add .env
         run: |
           touch .env
-          echo NODE_ENV=production
-          echo VUE_APP_IQAIR_API_KEY={{secrets.API_KEY}}
+          echo NODE_ENV=production >> .env
+          echo VUE_APP_IQAIR_API_KEY=${{secrets.API_KEY}} >> .env
+          cat .env
       
       - name: Build
         run: | 
