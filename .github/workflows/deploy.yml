@@ -14,14 +14,13 @@ jobs:
 
       - name: Install
         run: |
-          npm install
-          npm run build
+          npm ci
           
       - name: Add .env
         run: |
           touch .env
           echo NODE_ENV=production >> .env
-          echo VUE_APP_IQAIR_API_KEY=${{secrets.API_KEY}} >> .env
+          echo VUE_APP_IQAIR_API_KEY=${{ secrets.API_KEY }} >> .env
           cat .env
       
       - name: Build
